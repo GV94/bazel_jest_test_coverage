@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+      "target": "es2015",
+      "module": "umd",
+      "moduleResolution": "node",
+      "downlevelIteration": true,
+      "skipDefaultLibCheck": true,
+      "preserveConstEnums": false,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "noErrorTruncation": false,
+      "noEmitOnError": false,
+      "declaration": true,
+      "stripInternal": true,
+      "inlineSourceMap": true,
+      "inlineSources": true,
+      "sourceMap": false,
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "rootDirs": [
+        ".",
+        "bazel-out/host/bin",
+        "bazel-out/darwin-fastbuild/bin",
+        "bazel-out/k8-fastbuild/bin",
+        "bazel-out/x64_windows-fastbuild/bin",
+        "bazel-out/darwin-dbg/bin",
+        "bazel-out/k8-dbg/bin",
+        "bazel-out/x64_windows-dbg/bin",
+      ]
+    },
+    "exclude": ["external"]
+}
