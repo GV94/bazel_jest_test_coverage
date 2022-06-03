@@ -1,9 +1,7 @@
-/// <amd-module name="coverage_test/ts_project/sample.spec" />
+import { add } from "./sample";
 
-import {add} from "./sample";
-
-describe('add', () => {
-    it('should add two numbers together', () => {
-        expect(add(4, 5)).toEqual(9);
-    })
+describe("add", () => {
+  it("should add two numbers together", () => {
+    expect(add(4, 5)).toEqual(9);
+  });
 });

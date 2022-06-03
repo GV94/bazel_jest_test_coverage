@@ -1,28 +1,30 @@
-load("@npm//@bazel/typescript:index.bzl", "ts_project")
-load("@npm//jest-cli:index.bzl", "jest_test")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@npm//jest-cli:package_json.bzl", jest_test = "bin")
 
 package(default_visibility = ["//visibility:public"])
 
 ts_project(
     name = "src",
-    srcs = glob(["*.ts"], exclude=["*.spec.ts"]),
+    srcs = glob(
+        ["*.ts"],
+        exclude = ["*.spec.ts"],
+    ),
     declaration = True,
-    tsconfig = "//:tsconfig.json",
+    tsconfig = "tsconfig.json",
 )
 
 ts_project(
     name = "jest_src",
     srcs = glob(["*.spec.ts"]),
     declaration = True,
-    tsconfig = "//:tsconfig.json",
+    tsconfig = "tsconfig.json",
     deps = [
         ":src",
-        "@npm//c8",
         "@npm//@types",
     ],
 )
 
-jest_test(
+jest_test.jest_test(
     name = "jest",
     args = [
         "--no-cache",
@@ -34,6 +36,6 @@ jest_test(
     ],
     data = [
         ":jest_src",
-        "//:jest.config.js",
+        "//:configs",
     ],
 )

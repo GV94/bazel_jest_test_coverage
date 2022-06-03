@@ -1,7 +1,17 @@
 # Add rules here to build your software
 # See https://docs.bazel.build/versions/master/build-ref.html#BUILD_files
+load("@npm//:defs.bzl", "link_js_packages")
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+
+link_js_packages()
 
 exports_files([
     "tsconfig.json",
     "jest.config.js",
 ])
+
+copy_to_bin(
+    name = "configs",
+    srcs = glob(["**/*config*"]),
+    visibility = ["//visibility:public"],
+)
